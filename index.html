@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <meta charset=utf-8 />
+  <title>Birampur</title>
+
+  <link href='https://www.mapbox.com/base/latest/base.css' rel='stylesheet' />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+   integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+   crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+   integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+   crossorigin=""></script>
+
+<script src="https://cdn.osmbuildings.org/classic/0.2.2b/OSMBuildings-Leaflet.js"></script>
+
+
+  <link href='dist/leaflet.fullscreen.css' rel='stylesheet' />
+  <script src='dist/Leaflet.fullscreen.min.js'></script>
+</head>
+<body>
+  <div class='limiter'>
+    <div class='col10 margin1 pad4y'>
+      <h1>Birampur</h1>
+      <p>A web map.</p>
+      <div class='space-bottom'>
+        <div id='map' class='col12 row10'></div>
+      </div>
+      <!-- <p>For usage, check out the <a href='https://github.com/mapbox/Leaflet.fullscreen'>project on GitHub</a>.</p> -->
+    </div>
+  </div>
+<script>
+  var map = L.map('map', {
+    fullscreenControl: {
+        pseudoFullscreen: true
+    } 
+  }).setView([25.3890,88.9908], 15); //15/25.3890/88.9908
+
+    var positron = L.tileLayer('Tiles/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://boiledbhoot.org/">BOIL</a> contributors, &copy; <a href="https://arahmandc.github.io/">Atikur Rahman</a>'
+    }).addTo(map);
+
+
+var osmb = new OSMBuildings(map).load('https://{s}.data.osmbuildings.org/0.2/anonymous/tile/{z}/{x}/{y}.json');
+
+
+map.addLayer(osmb);
+
+</script>
+</body>
+</html>
