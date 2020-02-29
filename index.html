@@ -18,6 +18,7 @@
 
   <link href='dist/leaflet.fullscreen.css' rel='stylesheet' />
   <script src='dist/Leaflet.fullscreen.min.js'></script>
+  <script src='dist/leaflet-hash.js'></script>
 </head>
 <body>
   <div class='limiter'>
@@ -36,6 +37,7 @@
         pseudoFullscreen: true
     } 
   }).setView([25.3890,88.9908], 15); //15/25.3890/88.9908
+  var hash = new L.Hash(map);
 
     var positron = L.tileLayer('Tiles/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="http://boiledbhoot.org/">BOIL</a> contributors, &copy; <a href="https://arahmandc.github.io/">Atikur Rahman</a>'
